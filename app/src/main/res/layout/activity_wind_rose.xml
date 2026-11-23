@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:padding="8dp">
+
+        <!-- Custom View for Wind Rose -->
+        <daniel.mutzafi.playandlearngeora.WindRoseView
+            android:id="@+id/wind_rose_view"
+            android:layout_width="250dp"
+            android:layout_height="250dp"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- Result Message -->
+        <TextView
+            android:id="@+id/tv_result"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- Direction Buttons Grid -->
+        <GridLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:columnCount="4"
+            android:rowCount="4"
+            android:useDefaultMargins="true"
+            android:alignmentMode="alignBounds">
+
+            <!-- Row 1 -->
+            <Button android:id="@+id/btn_nw" android:text="NW" />
+            <Button android:id="@+id/btn_nnw" android:text="NNW" />
+            <Button android:id="@+id/btn_n" android:text="N" />
+            <Button android:id="@+id/btn_nne" android:text="NNE" />
+
+            <!-- Row 2 -->
+            <Button android:id="@+id/btn_wnw" android:text="WNW" />
+            <Button android:id="@+id/btn_ne" android:text="NE" />
+            <Button android:id="@+id/btn_ene" android:text="ENE" />
+            <Button android:id="@+id/btn_w" android:text="W" />
+
+            <!-- Row 3 -->
+            <Button android:id="@+id/btn_e" android:text="E" />
+            <Button android:id="@+id/btn_wsw" android:text="WSW" />
+            <Button android:id="@+id/btn_sw" android:text="SW" />
+            <Button android:id="@+id/btn_ese" android:text="ESE" />
+
+            <!-- Row 4 -->
+            <Button android:id="@+id/btn_ssw" android:text="SSW" />
+            <Button android:id="@+id/btn_s" android:text="S" />
+            <Button android:id="@+id/btn_sse" android:text="SSE" />
+            <Button android:id="@+id/btn_se" android:text="SE" />
+
+        </GridLayout>
+
+        <!-- Control Buttons -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginTop="16dp">
+
+            <Button
+                android:id="@+id/btn_start"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/start"
+                android:layout_marginEnd="16dp"/>
+
+            <Button
+                android:id="@+id/btn_stop"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/stop"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_menu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="16dp"
+        android:src="@drawable/globus"
+        android:scaleType="centerInside"
+        app:backgroundTint="@android:color/white"
+        app:tint="@null"
+        app:maxImageSize="48dp"
+        app:fabSize="normal" />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

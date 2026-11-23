@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    The root layout is a FrameLayout. This is necessary to allow layering multiple views on top of each other.
+    In this case, we are layering two ImageView for the scrolling background and a LinearLayout for the main content.
+-->
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".StartActivity">
+
+    <!--
+        These are the two ImageViews that create the scrolling background effect.
+        They are placed one after another and will be animated in the MainActivity.
+        The `tiled_clouds_background` drawable is used, which repeats the `clouds.png` image.
+        `scaleType="fitXY"` is used to stretch the tiled background to fill the entire view,
+        which is important for the seamless animation to work correctly across different screen sizes.
+    -->
+    <ImageView
+        android:id="@+id/clouds_background1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/tiled_clouds_background"
+        android:scaleType="fitXY"/>
+
+    <ImageView
+        android:id="@+id/clouds_background2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/tiled_clouds_background"
+        android:scaleType="fitXY"/>
+
+    <!--
+        This is the main content layout.
+        Its background is set to transparent so that the scrolling ImageViews behind it are visible.
+        All your UI elements like TextViews, Buttons, etc., should be placed inside this LinearLayout.
+    -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:background="@android:color/transparent">
+
+        <VideoView
+            android:id="@+id/globus_video"
+            android:layout_width="100dp"
+            android:layout_height="100dp" />
+
+    </LinearLayout>
+</FrameLayout>

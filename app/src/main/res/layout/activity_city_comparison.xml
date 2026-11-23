@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:gravity="center_horizontal">
+
+        <!-- Cities and coordinates -->
+        <TextView
+            android:id="@+id/tvCity1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/city1_placeholder"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp"/>
+
+        <TextView
+            android:id="@+id/tvCity2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/city2_placeholder"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="24dp"/>
+
+        <!-- Map, initially hidden -->
+        <org.osmdroid.views.MapView
+            android:id="@+id/mapView"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:visibility="gone"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- Question -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/choose_2_statements"
+            android:textSize="16sp"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- 4 CheckBox options -->
+        <CheckBox
+            android:id="@+id/cbOption1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/option_1"/>
+
+        <CheckBox
+            android:id="@+id/cbOption2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/option_2"/>
+
+        <CheckBox
+            android:id="@+id/cbOption3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/option_3"/>
+
+        <CheckBox
+            android:id="@+id/cbOption4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/option_4"/>
+
+        <!-- Control buttons -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginTop="24dp">
+
+            <Button
+                android:id="@+id/bCheck"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/check_answer"
+                android:layout_marginEnd="8dp"/>
+
+            <Button
+                android:id="@+id/bNext"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/next_question"
+                android:layout_marginEnd="8dp"/>
+
+            <Button
+                android:id="@+id/bMap"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/map_help"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_menu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="16dp"
+        android:src="@drawable/globus"
+        android:scaleType="centerInside"
+        app:backgroundTint="@android:color/white"
+        app:tint="@null"
+        app:maxImageSize="48dp"
+        app:fabSize="normal" />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -1,0 +1,444 @@
+@startuml
+class daniel.mutzafi.playandlearngeora.DiscoveryHistoryActivity {
+- RecyclerView rvDiscovery
+- DiscoveryAdapter adapter
+- ProgressBar progressBar
+- ExecutorService executorService
+# void onCreate(Bundle)
+- void loadDiscoveryData()
+}
+
+
+class daniel.mutzafi.playandlearngeora.City {
+~ String name
+~ double lat
+~ double lng
+}
+
+class daniel.mutzafi.playandlearngeora.ModulesChoiceActivity {
+- TextView tvTitle
+- RelativeLayout rootLayout
+- Button bGo
+- CompassView compassView
+- int currentSelection
+- int[] bgColors
+# void onCreate(Bundle)
+# void onResume()
+- void updateUI(int)
+- void performTransition()
+}
+
+
+class daniel.mutzafi.playandlearngeora.RegisterFragment {
+- MapView map
+- GeoPoint selectedPoint
+- Button bSave
+- Marker currentMarker
++ View onCreateView(LayoutInflater,ViewGroup,Bundle)
+- void savePoint()
++ void onResume()
++ void onPause()
+}
+
+
+class daniel.mutzafi.playandlearngeora.CountriesAdapter {
+- List<Country> countries
+- Context context
+- OnItemClickListener listener
++ ViewHolder onCreateViewHolder(ViewGroup,int)
++ void onBindViewHolder(ViewHolder,int)
++ int getItemCount()
++ void updateList(List<Country>)
+}
+
+
+interface daniel.mutzafi.playandlearngeora.CountriesAdapter$OnItemClickListener {
+~ void onItemClick(Country)
+}
+
+class daniel.mutzafi.playandlearngeora.CountriesAdapter$ViewHolder {
+~ ImageView ivFlag
+~ TextView tvName
++ void bind(Country,OnItemClickListener)
+}
+
+
+class daniel.mutzafi.playandlearngeora.CityCoordinateActivity {
+- TextView tvCityName
+- RadioGroup rgOptions
+- RadioButton rbOption1
+- Button btnSubmit
+- Random random
+- List<City> cities
+- City currentCity
+- boolean showLatitude
+- String correctOption
+# void onCreate(Bundle)
+- void showMenu(View)
++ boolean onMenuItemClick(MenuItem)
+- void initViews()
+- void generateNewQuestion()
+- void generateOptionsForLatitude()
+- void generateOptionsForLongitude()
+- void checkAnswer()
+}
+
+
+class daniel.mutzafi.playandlearngeora.TestStatistic {
+- String testName
+- int correctAnswers
+- int totalQuestions
+- String date
++ String getTestName()
++ int getCorrectAnswers()
++ int getTotalQuestions()
++ String getDate()
+}
+
+
+class daniel.mutzafi.playandlearngeora.DeviceChoiceActivity {
+# void onCreate(Bundle)
+- void showMenu(View)
++ boolean onMenuItemClick(MenuItem)
+- void saveDeviceType(String)
+}
+
+class daniel.mutzafi.playandlearngeora.WindRoseView {
+- Paint yellowCirclePaint
+- int selectedDirection
+- {static} String[] DIRECTIONS
+- Bitmap compassRoseBitmap
+- void initPaints()
++ void setSelectedDirection(int)
+# void onDraw(Canvas)
++ String getDirection(int)
+}
+
+
+class daniel.mutzafi.playandlearngeora.StatisticsActivity {
+- RecyclerView rvStatistics
+- TextView tvTotalTests
+- StatisticsAdapter adapter
+- HelperDB helperDB
+# void onCreate(Bundle)
+- void loadStatistics()
+}
+
+
+class daniel.mutzafi.playandlearngeora.StartActivity {
+# void onCreate(Bundle)
+}
+
+class daniel.mutzafi.playandlearngeora.CountriesActivity {
+- RecyclerView rvCountries
+- CountriesAdapter adapter
+- List<Country> allCountries
+- ProgressBar progressBar
+- EditText etSearch
+- ExecutorService executorService
+- {static} String API_URL
+# void onCreate(Bundle)
++ void onItemClick(Country)
+- void loadCountries()
+- String fetchJson(String)
+- List<Country> parseCountries(String)
+- void filterCountries(String)
+}
+
+
+class daniel.mutzafi.playandlearngeora.HelperDB {
++ {static} String DATABASE_NAME
++ {static} int DATABASE_VERSION
++ {static} String TABLE_SCHOOL_WORKS
++ {static} String COLUMN_ID
++ {static} String COLUMN_FIRST_NAME
++ {static} String COLUMN_LAST_NAME
++ {static} String COLUMN_CLASS
++ {static} String COLUMN_LOGIN_TIMESTAMP
+- {static} String SCHOOL_WORKS_TABLE_CREATE
++ {static} String TABLE_TEST_STATISTICS
++ {static} String STATS_COLUMN_ID
++ {static} String STATS_COLUMN_SCHOOL_WORK_ID
++ {static} String STATS_COLUMN_TEST_NAME
++ {static} String STATS_COLUMN_CORRECT_ANSWERS
++ {static} String STATS_COLUMN_TOTAL_QUESTIONS
++ {static} String STATS_COLUMN_DATE
+- {static} String TEST_STATISTICS_TABLE_CREATE
++ void onCreate(SQLiteDatabase)
++ void onUpgrade(SQLiteDatabase,int,int)
++ {static} void addTestResult(Context,long,String,int,int)
++ List<TestStatistic> getStatisticsForSession(long)
+}
+
+
+class daniel.mutzafi.playandlearngeora.CityComparisonActivity {
+- TextView tvCity1
+- CheckBox cbOption1
+- Button btnSubmit
+- MapView mapView
+- Random random
+- {static} int STORAGE_PERMISSION_CODE
+- List<City> cities
+- City city1
+- String northSouthCorrect
+# void onCreate(Bundle)
+- void showMenu(View)
++ boolean onMenuItemClick(MenuItem)
+- void initViews()
+- void generateNewQuestion()
+- void checkAnswers()
+- void resetCheckBoxes()
+- void showMap()
+# void onResume()
+# void onPause()
++ void onRequestPermissionsResult(int,String[],int[])
+}
+
+
+class daniel.mutzafi.playandlearngeora.CityComparisonActivity$CityLabelOverlay {
+- GeoPoint point
+- String label
+- Paint circlePaint
+- Paint textPaint
++ void draw(Canvas,MapView,boolean)
+}
+
+
+class daniel.mutzafi.playandlearngeora.WindRoseActivity {
+- {static} String TAG
+- TextView tvResult
+- WindRoseView windRoseView
+- Button btnN
+- Button btnNNE
+- Button btnStart
+- Random random
+- int currentDirection
+- boolean isRunning
+# void onCreate(Bundle)
+- void showMenu(View)
++ boolean onMenuItemClick(MenuItem)
+- void initViews()
+- void setupDirectionButtons()
+- void startGame()
+- void stopGame()
+- void selectNewDirection()
+- void checkDirection(int)
+}
+
+
+class daniel.mutzafi.playandlearngeora.DiscoveryAdapter {
+- List<Discovery> discoveries
+- Context context
++ ViewHolder onCreateViewHolder(ViewGroup,int)
++ void onBindViewHolder(ViewHolder,int)
++ int getItemCount()
+}
+
+
+class daniel.mutzafi.playandlearngeora.DiscoveryAdapter$ViewHolder {
+~ ImageView ivExplorer
+~ TextView tvExplorerName
+}
+
+class daniel.mutzafi.playandlearngeora.Discovery {
+- String explorerName
+- String year
+- String description
+- String imageUrl
++ String getExplorerName()
++ String getYear()
++ String getDescription()
++ String getImageUrl()
++ void setDescription(String)
++ void setImageUrl(String)
+}
+
+
+class daniel.mutzafi.playandlearngeora.InformationMainActivity {
+# void onCreate(Bundle)
+}
+
+class daniel.mutzafi.playandlearngeora.LoginFragment {
+- MapView map
+- GeoPoint selectedPoint
+- Button bCheck
+- Marker currentMarker
++ View onCreateView(LayoutInflater,ViewGroup,Bundle)
+- void checkPoint()
+- void handleSuccessfulLogin()
++ void onResume()
++ void onPause()
+}
+
+
+class daniel.mutzafi.playandlearngeora.StudentDetailsActivity {
+- EditText etFirstName
+- HelperDB helperDB
+- ExecutorService executorService
+# void onCreate(Bundle)
+- void saveStudentData(String,String,String)
+# void onDestroy()
+}
+
+
+class daniel.mutzafi.playandlearngeora.Country {
+- String name
+- String capital
+- String flagUrl
+- long population
+- String region
++ String getName()
++ String getCapital()
++ String getFlagUrl()
++ long getPopulation()
++ String getRegion()
+}
+
+
+class daniel.mutzafi.playandlearngeora.RegLogActivity {
+~ Button bRegister
+# void onCreate(Bundle)
+- void loadInitialFragment()
+- void loadFragment(androidx.fragment.app.Fragment)
+}
+
+
+class daniel.mutzafi.playandlearngeora.GeoQuizActivity {
+- TextView tvCoordinates
+- Button btnOption1
+- MapView mapView
+- double currentLat
+- String correctAnswer
+- Random random
+- int questionsAnswered
+- int correctAnswers
+- {static} int TOTAL_QUESTIONS
+- String[] options
+# void onCreate(Bundle)
+- void initViews()
+- void generateNewQuestion()
+- void checkAnswer(String)
+- void showFinalScore()
+- void setAnswerButtonsEnabled(boolean)
+}
+
+
+class daniel.mutzafi.playandlearngeora.CompassView {
+- Paint paint
+- RectF rectF
+- float rotationAngle
+- float lastTouchAngle
+- OnSelectionChangedListener listener
+- int[] sectorColors
+- String[] sectorLabels
+- void init()
++ void setOnSelectionChangedListener(OnSelectionChangedListener)
+# void onSizeChanged(int,int,int,int)
+# void onDraw(Canvas)
++ boolean onTouchEvent(MotionEvent)
+- void notifySelection()
+}
+
+
+interface daniel.mutzafi.playandlearngeora.CompassView$OnSelectionChangedListener {
+~ void onSelectionChanged(int)
+}
+
+class daniel.mutzafi.playandlearngeora.AboutAppActivity {
+# void onCreate(Bundle)
+}
+
+class daniel.mutzafi.playandlearngeora.LearnAndTestMainActivity {
+# void onCreate(Bundle)
+}
+
+class daniel.mutzafi.playandlearngeora.StatisticsAdapter {
+- List<TestStatistic> statistics
++ ViewHolder onCreateViewHolder(ViewGroup,int)
++ void onBindViewHolder(ViewHolder,int)
++ int getItemCount()
+}
+
+
+class daniel.mutzafi.playandlearngeora.StatisticsAdapter$ViewHolder {
+~ TextView tvTestName
+~ View itemLayout
++ void bind(TestStatistic)
+}
+
+
+class daniel.mutzafi.playandlearngeora.EarthquakeActivity {
+- MapView mapView
+- ExecutorService executorService
+- {static} String USGS_API_URL
+# void onCreate(Bundle)
+- void loadEarthquakeData()
+- String fetchJson(String)
+- void parseAndShowEarthquakes(String)
+- void addEarthquakeMarker(double,double,double,String,long)
++ void onResume()
++ void onPause()
+}
+
+
+class daniel.mutzafi.playandlearngeora.BaseActivity {
+# void onCreate(Bundle)
+# void setupMenu()
+# boolean isNetworkAvailable()
+# void showInternetConnectionDialog()
+- void showMenu(View)
++ boolean onMenuItemClick(MenuItem)
+}
+
+class daniel.mutzafi.playandlearngeora.GameMainActivity {
+# void onCreate(Bundle)
+- void showMenu(View)
++ boolean onMenuItemClick(MenuItem)
+}
+
+
+
+daniel.mutzafi.playandlearngeora.BaseActivity <|-- daniel.mutzafi.playandlearngeora.DiscoveryHistoryActivity
+daniel.mutzafi.playandlearngeora.BaseActivity <|-- daniel.mutzafi.playandlearngeora.ModulesChoiceActivity
+androidx.fragment.app.Fragment <|-- daniel.mutzafi.playandlearngeora.RegisterFragment
+daniel.mutzafi.playandlearngeora.Adapter <|-- daniel.mutzafi.playandlearngeora.CountriesAdapter
+daniel.mutzafi.playandlearngeora.CountriesAdapter +.. daniel.mutzafi.playandlearngeora.CountriesAdapter$OnItemClickListener
+daniel.mutzafi.playandlearngeora.CountriesAdapter +.. daniel.mutzafi.playandlearngeora.CountriesAdapter$ViewHolder
+daniel.mutzafi.playandlearngeora.ViewHolder <|-- daniel.mutzafi.playandlearngeora.CountriesAdapter$ViewHolder
+daniel.mutzafi.playandlearngeora.OnMenuItemClickListener <|.. daniel.mutzafi.playandlearngeora.CityCoordinateActivity
+androidx.appcompat.app.AppCompatActivity <|-- daniel.mutzafi.playandlearngeora.CityCoordinateActivity
+daniel.mutzafi.playandlearngeora.OnMenuItemClickListener <|.. daniel.mutzafi.playandlearngeora.DeviceChoiceActivity
+androidx.appcompat.app.AppCompatActivity <|-- daniel.mutzafi.playandlearngeora.DeviceChoiceActivity
+android.view.View <|-- daniel.mutzafi.playandlearngeora.WindRoseView
+daniel.mutzafi.playandlearngeora.BaseActivity <|-- daniel.mutzafi.playandlearngeora.StatisticsActivity
+androidx.appcompat.app.AppCompatActivity <|-- daniel.mutzafi.playandlearngeora.StartActivity
+daniel.mutzafi.playandlearngeora.OnItemClickListener <|.. daniel.mutzafi.playandlearngeora.CountriesActivity
+daniel.mutzafi.playandlearngeora.BaseActivity <|-- daniel.mutzafi.playandlearngeora.CountriesActivity
+android.database.sqlite.SQLiteOpenHelper <|-- daniel.mutzafi.playandlearngeora.HelperDB
+daniel.mutzafi.playandlearngeora.OnMenuItemClickListener <|.. daniel.mutzafi.playandlearngeora.CityComparisonActivity
+androidx.appcompat.app.AppCompatActivity <|-- daniel.mutzafi.playandlearngeora.CityComparisonActivity
+daniel.mutzafi.playandlearngeora.CityComparisonActivity +.. daniel.mutzafi.playandlearngeora.CityComparisonActivity$CityLabelOverlay
+daniel.mutzafi.playandlearngeora.Overlay <|-- daniel.mutzafi.playandlearngeora.CityComparisonActivity$CityLabelOverlay
+daniel.mutzafi.playandlearngeora.OnMenuItemClickListener <|.. daniel.mutzafi.playandlearngeora.WindRoseActivity
+androidx.appcompat.app.AppCompatActivity <|-- daniel.mutzafi.playandlearngeora.WindRoseActivity
+daniel.mutzafi.playandlearngeora.Adapter <|-- daniel.mutzafi.playandlearngeora.DiscoveryAdapter
+daniel.mutzafi.playandlearngeora.DiscoveryAdapter +.. daniel.mutzafi.playandlearngeora.DiscoveryAdapter$ViewHolder
+daniel.mutzafi.playandlearngeora.ViewHolder <|-- daniel.mutzafi.playandlearngeora.DiscoveryAdapter$ViewHolder
+daniel.mutzafi.playandlearngeora.BaseActivity <|-- daniel.mutzafi.playandlearngeora.InformationMainActivity
+androidx.fragment.app.Fragment <|-- daniel.mutzafi.playandlearngeora.LoginFragment
+daniel.mutzafi.playandlearngeora.BaseActivity <|-- daniel.mutzafi.playandlearngeora.StudentDetailsActivity
+daniel.mutzafi.playandlearngeora.BaseActivity <|-- daniel.mutzafi.playandlearngeora.RegLogActivity
+daniel.mutzafi.playandlearngeora.BaseActivity <|-- daniel.mutzafi.playandlearngeora.GeoQuizActivity
+android.view.View <|-- daniel.mutzafi.playandlearngeora.CompassView
+daniel.mutzafi.playandlearngeora.CompassView +.. daniel.mutzafi.playandlearngeora.CompassView$OnSelectionChangedListener
+daniel.mutzafi.playandlearngeora.BaseActivity <|-- daniel.mutzafi.playandlearngeora.AboutAppActivity
+daniel.mutzafi.playandlearngeora.BaseActivity <|-- daniel.mutzafi.playandlearngeora.LearnAndTestMainActivity
+daniel.mutzafi.playandlearngeora.Adapter <|-- daniel.mutzafi.playandlearngeora.StatisticsAdapter
+daniel.mutzafi.playandlearngeora.StatisticsAdapter +.. daniel.mutzafi.playandlearngeora.StatisticsAdapter$ViewHolder
+daniel.mutzafi.playandlearngeora.ViewHolder <|-- daniel.mutzafi.playandlearngeora.StatisticsAdapter$ViewHolder
+daniel.mutzafi.playandlearngeora.BaseActivity <|-- daniel.mutzafi.playandlearngeora.EarthquakeActivity
+daniel.mutzafi.playandlearngeora.OnMenuItemClickListener <|.. daniel.mutzafi.playandlearngeora.BaseActivity
+androidx.appcompat.app.AppCompatActivity <|-- daniel.mutzafi.playandlearngeora.BaseActivity
+daniel.mutzafi.playandlearngeora.OnMenuItemClickListener <|.. daniel.mutzafi.playandlearngeora.GameMainActivity
+androidx.appcompat.app.AppCompatActivity <|-- daniel.mutzafi.playandlearngeora.GameMainActivity
+@enduml

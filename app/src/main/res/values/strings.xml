@@ -1,0 +1,149 @@
+<resources>
+    <string name="app_name">PlayAndLearnGeora</string>
+
+    <!-- Point Actions -->
+    <string name="save_point">Save Point</string>
+    <string name="check_point">Check Point</string>
+    <string name="point_saved">Point saved!</string>
+    <string name="select_point_on_map">Select a point on the map</string>
+    <string name="you_selected">You selected</string>
+    <string name="select_point_first">Select a point first</string>
+    <string name="registration_not_completed">Registration not completed!</string>
+    <string name="welcome">Welcome!</string>
+    <string name="wrong_point_try_again">Wrong point. Try again.</string>
+
+    <!-- Navigation -->
+    <string name="go_to_login">Go to Login</string>
+    <string name="go_to_register">Go to Register</string>
+    <string name="go_to_guest">Go to Guest</string>
+    <string name="start_app">Start</string>
+
+    <!-- Dialogs -->
+    <string name="confirmation">Confirmation</string>
+    <string name="guest_mode_confirmation">Are you sure you want to select guest mode?</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="no_internet_connection">No Internet Connection</string>
+    <string name="internet_required_message">An internet connection is required to load the map. Please enable Wi-Fi or mobile data.</string>
+    <string name="settings">Settings</string>
+    <string name="exit">Exit</string>
+    <string name="location_services_disabled">Location Services Disabled</string>
+    <string name="location_services_message">Location services must be enabled to determine your location.</string>
+    <string name="cancel">Cancel</string>
+
+    <!-- Device Choice -->
+    <string name="select_device_type">Select device type</string>
+    <string name="personal_device">Personal Device</string>
+    <string name="school_device">School Device</string>
+
+    <!-- Student Details -->
+    <string name="enter_student_details">Enter student details</string>
+    <string name="first_name">First Name</string>
+    <string name="last_name">Last Name</string>
+    <string name="class_name">Class (e.g., 10A)</string>
+    <string name="submit">Submit</string>
+    <string name="fill_all_fields">Please fill in all fields</string>
+
+    <!-- Modules Choice -->
+    <string name="module_learn_title">Learn &amp; Test</string>
+    <string name="module_learn_desc">Dive into geography lessons and test your knowledge.</string>
+    <string name="module_info_title">Information</string>
+    <string name="module_info_desc">Discover fascinating facts about the world.</string>
+    <string name="module_game_title">Games</string>
+    <string name="module_game_desc">Play exciting mini-games and earn points.</string>
+    <string name="rotate_instruction">Rotate the compass to choose!</string>
+    <string name="go">GO</string>
+    <string name="my_progress">My Progress</string>
+
+    <!-- Statistics -->
+    <string name="statistics_title">My Statistics</string>
+    <string name="total_tests_completed">Total tests completed: %1$d</string>
+    <string name="average_score">Average score: %1$.1f / 10</string>
+    <string name="no_stats_available">No statistics available yet. Complete a test!</string>
+
+    <!-- City Comparison -->
+    <string name="city1_placeholder">City 1: 0° N, 0° E</string>
+    <string name="city2_placeholder">City 2: 0° N, 0° E</string>
+    <string name="choose_2_statements">Select 2 correct statements:</string>
+    <string name="option_1">Option 1</string>
+    <string name="option_2">Option 2</string>
+    <string name="option_3">Option 3</string>
+    <string name="option_4">Option 4</string>
+    <string name="check_answer">Check Answer</string>
+    <string name="next_question">Next Question</string>
+    <string name="map_help">Show Map</string>
+    <string name="north_of">is north of</string>
+    <string name="south_of">is south of</string>
+    <string name="east_of">is east of</string>
+    <string name="west_of">is west of</string>
+    <string name="correct">Correct!</string>
+    <string name="incorrect_comparison">Incorrect! Correct: %1$s and %2$s</string>
+    <string name="map_error">Map Error: %1$s</string>
+
+    <!-- Geo Quiz -->
+    <string name="coordinates_placeholder">Coordinates: 0° 0\' N, 0° 0\' E</string>
+    <string name="which_hemisphere">Which hemisphere is this point in?</string>
+    <string name="ne_hemisphere">Northern and Eastern Hemisphere</string>
+    <string name="nw_hemisphere">Northern and Western Hemisphere</string>
+    <string name="se_hemisphere">Southern and Eastern Hemisphere</string>
+    <string name="sw_hemisphere">Southern and Western Hemisphere</string>
+
+    <!-- City Coordinate -->
+    <string name="city_label">City:</string>
+    <string name="coordinate_label">Coordinate:</string>
+    <string name="latitude_label">Latitude:</string>
+    <string name="longitude_label">Longitude:</string>
+    <string name="select_correct_coordinate">Select the correct second coordinate:</string>
+    <string name="variant_1">Variant 1</string>
+    <string name="variant_2">Variant 2</string>
+    <string name="variant_3">Variant 3</string>
+    <string name="variant_4">Variant 4</string>
+
+    <!-- Wind Rose -->
+    <string name="start">Start</string>
+    <string name="stop">Stop</string>
+    <string name="north">North</string>
+    <string name="south">South</string>
+    <string name="east">East</string>
+    <string name="west">West</string>
+    <string name="northeast">North-East</string>
+    <string name="northwest">North-West</string>
+    <string name="southeast">South-East</string>
+    <string name="southwest">South-West</string>
+
+    <!-- Information Main -->
+    <string name="info_earthquakes_title">Earthquakes Live</string>
+    <string name="info_earthquakes_desc">Real-time data from USGS</string>
+    <string name="info_countries_title">Countries</string>
+    <string name="info_countries_desc">Explore the world</string>
+    <string name="info_history_title">Discovery History</string>
+    <string name="info_history_desc">Great explorers</string>
+
+    <!-- Earthquakes -->
+    <string name="earthquake_legend">Legend:</string>
+    <string name="mag_low">Mag &lt; 4.0</string>
+    <string name="mag_med">4.0 - 5.5</string>
+    <string name="mag_high">Mag &gt; 5.5</string>
+    <string name="refresh">Refresh</string>
+    <string name="loading_earthquakes">Loading seismic data...</string>
+    <string name="earthquakes_loaded">Loaded %1$d earthquakes</string>
+    <string name="error_loading">Error loading data</string>
+    <string name="magnitude">Magnitude: %1$s</string>
+
+    <!-- Countries -->
+    <string name="country_details_title">Country Details</string>
+    <string name="population_label">Population:</string>
+    <string name="region_label">Region:</string>
+    <string name="currency_label">Currency:</string>
+    <string name="languages_label">Languages:</string>
+    <string name="area_label">Area:</string>
+    <string name="borders_label">Borders:</string>
+    <string name="close">Close</string>
+    
+    <string name="guess_country_title">Guess the Country</string>
+    <string name="capital_label">Capital</string>
+    <string name="try_again">Try again</string>
+    <string name="game_completed">Congratulations! You\'ve completed all countries!</string>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
